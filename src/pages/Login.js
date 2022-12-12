@@ -31,14 +31,16 @@ class Login extends React.Component {
     return passwordInput.length >= minNumber && email;
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const { dispatch } = this.props;
-    dispatch(addEmailAndPassword(this.state));
-  };
+  // handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const { emailInput, passwordInput } = this.state;
+  //   const { dispatch } = this.props;
+  //   dispatch(addEmailAndPassword(emailInput, passwordInput));
+  // };
 
   render() {
     const { emailInput, isSubmitButtonDisabled, passwordInput } = this.state;
+    const { dispatch } = this.props;
     return (
       <div className="login-container">
         {/* <div className="trybe-logo">
@@ -54,7 +56,7 @@ class Login extends React.Component {
               className="login"
               type="email"
               data-testid="email-input"
-              name="login-input"
+              name="emailInput"
               id="login-input"
               onChange={ this.handleChange }
               value={ emailInput }
@@ -66,7 +68,7 @@ class Login extends React.Component {
               className="senha"
               type="text"
               data-testid="password-input"
-              name="senha-input"
+              name="passwordInput"
               id="senha-input"
               onChange={ this.handleChange }
               value={ passwordInput }
@@ -78,6 +80,7 @@ class Login extends React.Component {
                 className="submit-button"
                 type="submit"
                 disabled={ isSubmitButtonDisabled }
+                onClick={ () => dispatch(addEmailAndPassword(emailInput)) }
               >
                 Entrar
               </button>
@@ -91,6 +94,11 @@ class Login extends React.Component {
 
 Login.propTypes = {
   dispatch: PropTypes.func.isRequired,
+
 };
 
-export default connect()(Login);
+const mapStateToProps = (state) => ({
+  writeEmail: state.email,
+});
+
+export default connect(mapStateToProps)(Login);

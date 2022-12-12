@@ -5,6 +5,6 @@ export const addEmailAndPassword = (personalInfo) => {
   console.log('pelo amor de Deus');
   return {
     type: ADD_LOGIN,
-    payload: { ...personalInfo },
+    payload: personalInfo,
   };
 };
