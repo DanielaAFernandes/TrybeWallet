@@ -28,6 +28,7 @@ class Header extends Component {
         <div className="expenses-header">
           <p data-testid="total-field">
             {/* { this.totalExpenses() } */}
+            0
           </p>
         </div>
         <div className="currency-header">
