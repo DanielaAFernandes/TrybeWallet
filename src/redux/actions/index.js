@@ -17,7 +17,7 @@ export const changeCurrency = (currencies) => ({
 });
 
 export const loadExpenses = (expenses) => {
-  console.log('expenses');
+  console.log('expenses', expenses);
   return {
     type: ADD_EXPENSES,
     payload: expenses,
