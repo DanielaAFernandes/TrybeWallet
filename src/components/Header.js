@@ -3,6 +3,18 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Header extends Component {
+  // totalExpenses = () => {
+  //   const { expenses } = this.props;
+  //   let quantityOfExpenses = 0;
+  //   if (expenses.length > 0) {
+  //     quantityOfExpenses = expenses((acc, curr) => {
+  //       acc += curr.value * curr.exchangeRates[curr.currency].ask;
+  //       return acc;
+  //     }, 0);
+  //   }
+  //   return quantityOfExpenses.toFixed(2);
+  // };
+
   render() {
     const { email } = this.props;
     return (
@@ -14,7 +26,9 @@ class Header extends Component {
           </p>
         </div>
         <div className="expenses-header">
-          <p data-testid="total-field"> 0</p>
+          <p data-testid="total-field">
+            {/* { this.totalExpenses() } */}
+          </p>
         </div>
         <div className="currency-header">
           <p data-testid="header-currency-field">BRL</p>
@@ -26,6 +40,13 @@ class Header extends Component {
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
+  // expenses: PropTypes.arrayOf(PropTypes.shape({
+  //   id: PropTypes.number.isRequired,
+  //   value: PropTypes.string.isRequired,
+  //   description: PropTypes.string.isRequired,
+  //   currency: PropTypes.string.isRequired,
+  //   method: PropTypes.string.isRequired,
+  //   tag: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({

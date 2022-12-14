@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeCurrency } from '../redux/actions';
+import { changeCurrency, loadExpenses } from '../redux/actions';
 import fetchCurrency from '../redux/services/api';
 
 class WalletForm extends Component {
@@ -11,7 +11,7 @@ class WalletForm extends Component {
     paymentInput: 'Dinheiro',
     tagInput: 'Alimentação',
     descriptionInput: '',
-    // expenses: '',
+    expenses: [],
     currencies: [],
   };
 
@@ -29,6 +29,16 @@ class WalletForm extends Component {
     this.setState({ currencies: newResultKeys });
   };
 
+  loadCurrencyObj = async () => {
+    const resultObj = await fetchCurrency();
+    const { dispatch } = this.props;
+    dispatch(loadExpenses(this.state));
+
+    this.setState({ resultObj });
+    console.log(resultObj);
+    this.setState(this.clearExpenses());
+  };
+
   handleChange = ({ target }) => {
     const { name, value } = target;
     this.setState({
@@ -36,21 +46,18 @@ class WalletForm extends Component {
     });
   };
 
-  clearExpenses = () => {
-    state = {
-      valueInput: '',
-      coinInput: '',
-      paymentInput: '',
-      tagInput: '',
-      descriptionInput: '',
-    };
-  };
+  clearExpenses = () => ({
+    valueInput: '',
+    coinInput: 'USD',
+    paymentInput: 'Dinheiro',
+    tagInput: 'Alimentação',
+    descriptionInput: '',
+  });
 
   render() {
     const { valueInput, coinInput,
       paymentInput, currencies,
       tagInput, descriptionInput } = this.state;
-    console.log('aqui', currencies);
     return (
       <div className="wallet-div">
         <form className="wallet-container">
@@ -131,8 +138,8 @@ class WalletForm extends Component {
           <div className="add-walletButton">
             <button
               className="add-button"
-              type="submit"
-              onClick={ () => dispatch(this.clearExpenses()) }
+              type="button"
+              onClick={ () => this.loadCurrencyObj() }
             >
               Adicionar despesa
             </button>

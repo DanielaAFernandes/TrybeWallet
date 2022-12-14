@@ -31,13 +31,6 @@ class Login extends React.Component {
     return passwordInput.length >= minNumber && email;
   };
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const { emailInput, passwordInput } = this.state;
-  //   const { dispatch } = this.props;
-  //   dispatch(addEmailAndPassword(emailInput, passwordInput));
-  // };
-
   render() {
     const { emailInput, isSubmitButtonDisabled, passwordInput } = this.state;
     const { dispatch } = this.props;

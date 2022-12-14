@@ -1,6 +1,7 @@
 // Coloque aqui suas actions\
 export const ADD_LOGIN = 'ADD_LOGIN';
 export const ADD_CURRENCY = 'ADD_CURRENCY';
+export const ADD_EXPENSES = 'ADD_EXPENSES';
 
 export const addEmailAndPassword = (personalInfo) => {
   console.log('pelo amor de Deus');
@@ -10,10 +11,15 @@ export const addEmailAndPassword = (personalInfo) => {
   };
 };
 
-export const changeCurrency = (currencies) => {
-  console.log('será se vai aparecer');
+export const changeCurrency = (currencies) => ({
+  type: ADD_CURRENCY,
+  payload: currencies,
+});
+
+export const loadExpenses = (expenses) => {
+  console.log('expenses');
   return {
-    type: ADD_CURRENCY,
-    payload: currencies,
+    type: ADD_EXPENSES,
+    payload: expenses,
   };
 };
