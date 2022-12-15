@@ -11,6 +11,7 @@ class WalletForm extends Component {
     method: 'Dinheiro',
     tag: 'Alimentação',
     description: '',
+    exchangeRates: '',
   };
 
   componentDidMount() {

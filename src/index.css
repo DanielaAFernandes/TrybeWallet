@@ -24,15 +24,15 @@ body {
 }
 
 .coin-table {
-  padding-right: 25px;
+  padding-right: 100px;
 }
 
 .conversion-coin-table {
-  padding-right: 25px;
+  padding-right: 100px;
 }
 
 .converted-value-table {
-  padding-right: 25px;
+  padding-right: 80px;
 }
 
 .currency-header {
@@ -40,7 +40,7 @@ body {
 }
 
 .currency-table {
-  padding-right: 25px;
+  padding-right: 100px;
 }
 
 .description {
@@ -57,11 +57,11 @@ body {
 }
 
 .description-table {
-  padding-right: 25px;
+  padding-right: 100px;
 }
 
 .edit-delete-table {
-  padding-right: 25px;
+  padding-right: 100px;
 }
 
 .email-header {
@@ -105,7 +105,7 @@ body {
 }
 
 .method-table {
-  padding-right: 25px;
+  padding-right: 80px;
 }
 
 .payment {
@@ -160,7 +160,7 @@ body {
 }
 
 .tag-table {
-  padding-right: 25px;
+  padding-right: 120px;
 }
 
 .value {
@@ -171,7 +171,7 @@ body {
 }
 
 .value-table {
-  padding-right: 25px;
+  padding-right: 80px;
 }
 
 .wallet-container {
