@@ -6,7 +6,7 @@ import { deleteItem } from '../redux/actions';
 class Table extends Component {
   deleteItemExpense = (id) => {
     const { dispatch, expenses } = this.props;
-    const deleteEx = expenses.filter((expense) => expense.id === id);
+    const deleteEx = expenses.filter((expense) => expense.id !== id);
     dispatch(deleteItem(deleteEx));
     console.log(this.props);
   };
