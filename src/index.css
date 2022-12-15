@@ -24,11 +24,13 @@ body {
 }
 
 .coin-table {
-  padding-right: 100px;
+  padding-left: 60px;
+  padding-right: 200px;
 }
 
 .conversion-coin-table {
-  padding-right: 100px;
+  align-self: center;
+  padding-right: 60px;
 }
 
 .converted-value-table {
@@ -40,7 +42,7 @@ body {
 }
 
 .currency-table {
-  padding-right: 100px;
+  padding-right: 60px;
 }
 
 .description {
@@ -85,7 +87,7 @@ body {
 }
 
 .header-info {
-  background-color: rgb(240, 227, 116);
+  background-color: rgb(248, 87, 47);
   display: flex;
   flex-direction: row;
   font-size: 20px;
@@ -105,7 +107,7 @@ body {
 }
 
 .method-table {
-  padding-right: 80px;
+  padding-right: 20px;
 }
 
 .payment {

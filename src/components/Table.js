@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { deleteItem } from '../redux/actions';
 
 class Table extends Component {
+  deleteItemExpense = (id) => {
+    const { dispatch, expenses } = this.props;
+    const deleteEx = expenses.filter((expense) => expense.id === id);
+    dispatch(deleteItem(deleteEx));
+    console.log(this.props);
+  };
+
   render() {
     const { expenses } = this.props;
     const tableData = expenses.map(({
@@ -23,6 +31,16 @@ class Table extends Component {
         <td>{ Number(exchangeRates[currency].ask).toFixed(2)}</td>
         <td>{ Number(exchangeRates[currency].ask * value).toFixed(2)}</td>
         <td>Real</td>
+        <td>
+          <button
+            data-testid="delete-btn"
+            type="button"
+            className="delete-button"
+            onClick={ () => this.deleteItemExpense(id) }
+          >
+            Excluir despesa
+          </button>
+        </td>
       </tr>
     ));
     return (
@@ -52,6 +70,8 @@ class Table extends Component {
 
 Table.propTypes = {
   expenses: PropTypes.instanceOf(Array).isRequired,
+  dispatch: PropTypes.func.isRequired,
+  // id: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({

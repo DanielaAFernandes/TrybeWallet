@@ -12,6 +12,7 @@ class WalletForm extends Component {
     tag: 'Alimentação',
     description: '',
     exchangeRates: '',
+    id: 0,
   };
 
   componentDidMount() {
@@ -31,11 +32,19 @@ class WalletForm extends Component {
   loadCurrencyObj = async () => {
     const resultObj = await fetchCurrency();
     const { dispatch } = this.props;
+    // const { id } = this.state;
+    // console.log(id);
     delete resultObj.USDT;
     const newObj = {
       ...this.state,
       exchangeRates: resultObj,
     };
+    this.setState((prevState) => ({
+      id: prevState.id + 1,
+    }), () => {
+      const { id } = this.state;
+      console.log(id);
+    });
     console.log(resultObj);
     dispatch(loadExpenses(newObj));
     this.setState(this.clearExpenses());
@@ -155,6 +164,7 @@ class WalletForm extends Component {
 
 WalletForm.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  // expenses: PropTypes.instanceOf(Array).isRequired,
   currencies: PropTypes.shape({
     forEach: PropTypes.func,
     map: PropTypes.func.isRequired,
