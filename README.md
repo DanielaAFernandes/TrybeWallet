@@ -978,3 +978,4 @@ Os requisitos abaixo não serão avaliados pelo avaliador, porém você poderá 
     </details>
   <br />
 </details>
+# TrybeWallet
